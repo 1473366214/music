@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="mapper.UserLoginMapper">
+	    <insert id="addUser" parameterType="UserLogin" >
+	        insert into userlogin (id,pwd,profilepicture) values (#{id},#{pwd},#{profilepicture})    
+	    </insert>
+	    
+	    <select id="getUser" parameterType="string" resultType="UserLogin">
+	        select pwd,profilepicture from userlogin where id = #{id}
+	    </select>
+	    
+	    <select id="existUser" parameterType="string" resultType="int">
+	        select count(id) from userlogin where id = #{id}
+	    </select>
+	</mapper>
