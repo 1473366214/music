@@ -29,7 +29,7 @@ public class MybatisTest {
 		for (Category c : cs) {
 			System.out.println(c.getName());
 		}
-		System.out.println(new PageInfo(cs).getTotal());
+		System.out.println(new PageInfo<Category>(cs).getTotal());
 	}
 
 }

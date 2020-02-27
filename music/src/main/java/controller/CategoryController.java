@@ -61,6 +61,7 @@ public class CategoryController {
 	@RequestMapping("testUpload")
 	public String testUpload(@RequestParam("desc") String desc,@RequestParam("file") MultipartFile file) throws IOException {
 		InputStream input = file.getInputStream();
+		@SuppressWarnings("resource")
 		OutputStream output = new FileOutputStream("D:\\"+file.getOriginalFilename());
 		byte[] bs = new byte[1024];
 		int len = -1;

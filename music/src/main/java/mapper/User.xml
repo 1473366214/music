@@ -15,5 +15,17 @@
 	    <select id="getBaseMessage" resultType="User" parameterType="string">
             select loginpwd,name,icoaddress from user where loginid = #{loginId}
         </select>
+        
+        <insert id="insertList" parameterType="java.util.List" useGeneratedKeys="false">
+    			insert into user
+    			(username,password)
+    			values
+    			<foreach collection="list" item="item" index="index" separator=",">
+    				(
+    					#{item.username},
+    					#{item.password}
+    				)
+    		     </foreach>		
+    </insert>    
 	</mapper>
 
